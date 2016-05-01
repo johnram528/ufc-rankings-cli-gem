@@ -4,5 +4,5 @@ require "nokogiri"
 require "pry"
 
 require_relative "ufc_rankings/cli.rb"
-require_relative "ufc_rankings/righter.rb"
+require_relative "ufc_rankings/fighter.rb"
 
