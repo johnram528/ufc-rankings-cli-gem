@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+
+UfcRankings::CLI.new.call
