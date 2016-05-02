@@ -19,25 +19,39 @@ class UfcRankings::CLI
     input = gets.strip.to_i
     if input == 1 
       menu
-    else
-      "Bye" 
+    else 
       exit
     end
   end
 
   def list_classes 
-    puts "1.Pound for Pound, 2.Flyweight, 3.Bantamweight, 4.Featherweight, 5.Lightweight, 6. Welterweight, 7.Middleweight, 8.Light Heavyweight, 9.Heavyweight, 10.Women's Strawweight, 11. "
+    puts "1.Pound for Pound "
+    puts "2.Flyweight "
+    puts "3.Bantamweight"
+    puts "4.Featherweight "
+    puts "5.Lightweight "
+    puts "6.Welterweight "
+    puts "7.Middleweight "
+    puts "8.Light Heavyweight "
+    puts "9.Heavyweight "
+    puts "10.Women's Strawweight "
+    puts "11.Women's Bantameweight"
+    puts ""
   end
     
   def show_rankings(num)
     case num
     when 1
+      puts "Pound for Pound Rankings"
       UfcRankings::Fighters.p4p
     when 2
+      puts "Flyweight Rankings"
       UfcRankings::Fighters.fly
     when 3
+      puts "Bantameweight Rankings"
       UfcRankings::Fighters.bantam
     when 4
+      puts "Featherweight Rankings"
       UfcRankings::Fighters.feather
     end
   end
