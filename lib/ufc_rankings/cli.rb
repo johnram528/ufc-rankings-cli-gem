@@ -43,16 +43,16 @@ class UfcRankings::CLI
     case num
     when 1
       puts "Pound for Pound Rankings"
-      UfcRankings::Fighters.p4p
+      UfcRankings::Rankings.p4p
     when 2
       puts "Flyweight Rankings"
-      UfcRankings::Fighters.fly
+      UfcRankings::Rankings.fly
     when 3
       puts "Bantameweight Rankings"
-      UfcRankings::Fighters.bantam
+      UfcRankings::Rankings.bantam
     when 4
       puts "Featherweight Rankings"
-      UfcRankings::Fighters.feather
+      UfcRankings::Rankings.feather
     end
   end
 

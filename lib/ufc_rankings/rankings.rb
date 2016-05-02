@@ -1,4 +1,4 @@
-class UfcRankings::Fighters
+class UfcRankings::Rankings
   def self.p4p
     puts "1 Jon Jones "
     puts "2 Demetrious Johnson "
