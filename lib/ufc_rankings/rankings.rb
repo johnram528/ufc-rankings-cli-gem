@@ -11,14 +11,14 @@ class UfcRankings::Rankings
   @@light_heavy = []
   @@heavy = []
   @@womens_straw = []
-  @@ womens_bantam = []
+  @@womens_bantam = []
 
 
   def self.scrape_rankings
     doc = Nokogiri::HTML(open("http://www.ufc.com/rankings"))
     rankings = doc.css(".ranking-list")
-    fly = rankings[1].css("a").children.each {|fighter| @@fly << fighter}
-    @@champions << fly[0]
+    fly = rankings[1].css("a").children.each {|fighter| @@fly << fighter.text.strip}
+    @@champions << @@fly[0]
   end
 
   def self.p4p
@@ -41,8 +41,8 @@ class UfcRankings::Rankings
 
   def self.fly 
    puts "Champion: #{@@champions[0]}"
-   @@fly.shift!
-   @@fly.each_with_index {|fighter, i|puts "#{i+1}. fighter"}
+   @@fly.shift
+   @@fly.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
   end
 
   def self.bantam
