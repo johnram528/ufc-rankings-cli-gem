@@ -1,5 +1,6 @@
 class UfcRankings::CLI
   def call
+    UfcRankings::Rankings.scrape_rankings
     welcome
     menu
   end
@@ -40,7 +41,6 @@ class UfcRankings::CLI
   end
     
   def show_rankings(num)
-    UfcRankings::Rankings.scrape_rankings
     case num
     when 1
       puts "Pound for Pound Rankings"

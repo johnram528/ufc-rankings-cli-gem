@@ -28,7 +28,7 @@ class UfcRankings::Rankings
     rankings[8].css("a").children.each {|fighter| @@heavy << fighter.text.strip}
     rankings[9].css("a").children.each {|fighter| @@womens_straw << fighter.text.strip}
     rankings[10].css("a").children.each {|fighter| @@womens_bantam << fighter.text.strip}
-    @@champions << @@fly[0] << @@bantam[0] << @@feather[0] << @@light[0] << @@welter[0] << @@middle[0] << @@light_heavy[0] << @@heavy[0] << @@womens_straw << @@womens_bantam 
+    @@champions << @@fly[0] << @@bantam[0] << @@feather[0] << @@light[0] << @@welter[0] << @@middle[0] << @@light_heavy[0] << @@heavy[0] << @@womens_straw[0] << @@womens_bantam[0] 
 
 
   end
