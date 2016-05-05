@@ -17,17 +17,17 @@ class UfcRankings::Rankings
   def self.scrape_rankings
     doc = Nokogiri::HTML(open("http://www.ufc.com/rankings"))
     rankings = doc.css(".ranking-list")
-    pound_for_pound = rankings[0].css("a").children.each {|fighter| @@p4p << fighter.text.strip}
-    rankings[1].css("a").children.each {|fighter| @@fly << fighter.text.strip}
-    rankings[2].css("a").children.each {|fighter| @@bantam << fighter.text.strip}
-    rankings[3].css("a").children.each {|fighter| @@feather << fighter.text.strip}
-    rankings[4].css("a").children.each {|fighter| @@light << fighter.text.strip}
-    rankings[5].css("a").children.each {|fighter| @@welter << fighter.text.strip}
-    rankings[6].css("a").children.each {|fighter| @@middle << fighter.text.strip}
-    rankings[7].css("a").children.each {|fighter| @@light_heavy << fighter.text.strip}
-    rankings[8].css("a").children.each {|fighter| @@heavy << fighter.text.strip}
-    rankings[9].css("a").children.each {|fighter| @@womens_straw << fighter.text.strip}
-    rankings[10].css("a").children.each {|fighter| @@womens_bantam << fighter.text.strip}
+    pound_for_pound = rankings[0].css("a").children.each {|fighter| @@p4p << fighter.text.strip.split.join(" ")}
+    rankings[1].css("a").children.each {|fighter| @@fly << fighter.text.strip.split.join(" ")}
+    rankings[2].css("a").children.each {|fighter| @@bantam << fighter.text.strip.split.join(" ")}
+    rankings[3].css("a").children.each {|fighter| @@feather << fighter.text.strip.split.join(" ")}
+    rankings[4].css("a").children.each {|fighter| @@light << fighter.text.strip.split.join(" ")}
+    rankings[5].css("a").children.each {|fighter| @@welter << fighter.text.strip.split.join(" ")}
+    rankings[6].css("a").children.each {|fighter| @@middle << fighter.text.strip.split.join(" ")}
+    rankings[7].css("a").children.each {|fighter| @@light_heavy << fighter.text.strip.split.join(" ")}
+    rankings[8].css("a").children.each {|fighter| @@heavy << fighter.text.strip.split.join(" ")}
+    rankings[9].css("a").children.each {|fighter| @@womens_straw << fighter.text.strip.split.join(" ")}
+    rankings[10].css("a").children.each {|fighter| @@womens_bantam << fighter.text.strip.split.join(" ")}
     @@champions << @@fly[0] << @@bantam[0] << @@feather[0] << @@light[0] << @@welter[0] << @@middle[0] << @@light_heavy[0] << @@heavy[0] << @@womens_straw[0] << @@womens_bantam[0] 
 
 
