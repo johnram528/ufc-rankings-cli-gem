@@ -35,7 +35,7 @@ class UfcRankings::CLI
     puts "8.Light Heavyweight "
     puts "9.Heavyweight "
     puts "10.Women's Strawweight "
-    puts "11.Women's Bantameweight"
+    puts "11.Women's Bantamweight"
     puts ""
   end
     
@@ -54,6 +54,27 @@ class UfcRankings::CLI
     when 4
       puts "Featherweight Rankings"
       UfcRankings::Rankings.feather
+    when 5
+      puts "Lightweight Rankings"
+      UfcRankings::Rankings.light
+    when 6
+      puts "Welterweight Rankings"
+      UfcRankings::Rankings.welter
+    when 7
+      puts "Middleweight Rankings"
+      UfcRankings::Rankings.middle
+    when 8
+      puts "Light Heavyweight Rankings"
+      UfcRankings::Rankings.light_heavy
+    when 9 
+      puts "Heavyweight Rankings"
+      UfcRankings::Rankings.heavy
+    when 10
+      puts "Women's Strawweight"
+      UfcRankings::Rankings.womens_straw
+    when 11
+      puts "Women's Bantamweight"
+      UfcRankings::Rankings.womens_bantam
     end
   end
 
