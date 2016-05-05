@@ -1,4 +1,26 @@
 class UfcRankings::Rankings
+
+  @@champions = []
+  @@p4p = []
+  @@fly = []
+  @@bantam = []
+  @@feather = []
+  @@light = []
+  @@welter = []
+  @@middle = []
+  @@light_heavy = []
+  @@heavy = []
+  @@womens_straw = []
+  @@ womens_bantam = []
+
+
+  def self.scrape_rankings
+    doc = Nokogiri::HTML(open("http://www.ufc.com/rankings"))
+    rankings = doc.css(".ranking-list")
+    fly = rankings[1].css("a").children.each {|fighter| @@fly << fighter}
+    @@champions << fly[0]
+  end
+
   def self.p4p
     puts "1 Jon Jones "
     puts "2 Demetrious Johnson "
@@ -17,23 +39,10 @@ class UfcRankings::Rankings
     puts "15  Miesha Tate "
   end
 
-  def self.fly
-    puts "Champion : Demetrious Johnson"
-    puts "1 Joseph Benavidez "
-    puts "2 Henry Cejudo "
-    puts "3 Jussier Formiga "
-    puts "4 Ian McCall "
-    puts "5 Kyoji Horiguchi "
-    puts "6 John Moraga "
-    puts "7 Zach Makovsky "
-    puts "8 Wilson Reis "
-    puts "9 Dustin Ortiz "
-    puts "10  Ali Bagautinov "
-    puts "11  Justin Scoggins "
-    puts "12  Louis Smolka "
-    puts "13  Ray Borg "
-    puts "14  Sergio Pettis "
-    puts "15  Ben Nguyen" 
+  def self.fly 
+   puts "Champion: #{@@champions[0]}"
+   @@fly.shift!
+   @@fly.each_with_index {|fighter, i|puts "#{i+1}. fighter"}
   end
 
   def self.bantam
@@ -72,5 +81,26 @@ class UfcRankings::Rankings
     puts "13  Tatsuya Kawajiri "
     puts "14  Yair Rodriguez "
     puts "15  Mirsad Bektic "
+ end
+
+ def self.light
+ end
+
+ def self.welter
+ end 
+
+ def self.middle
+ end
+
+ def self.light_heavy
+ end
+
+ def self.heavy
+ end
+
+ def self.womens_straw
+ end
+
+ def self.womens_bantam
  end
 end
