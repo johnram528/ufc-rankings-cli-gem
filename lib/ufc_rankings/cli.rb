@@ -16,6 +16,8 @@ class UfcRankings::CLI
     list_classes
     input = gets.strip
     show_rankings(input.to_i)
+    puts ""
+    puts ""
     puts "press 1 to see more rankings, 2 to exit."
     input = gets.strip.to_i
     if input == 1 
