@@ -17,26 +17,24 @@ class UfcRankings::Rankings
   def self.scrape_rankings
     doc = Nokogiri::HTML(open("http://www.ufc.com/rankings"))
     rankings = doc.css(".ranking-list")
-    fly = rankings[1].css("a").children.each {|fighter| @@fly << fighter.text.strip}
-    @@champions << @@fly[0]
+    pound_for_pound = rankings[0].css("a").children.each {|fighter| @@p4p << fighter.text.strip}
+    rankings[1].css("a").children.each {|fighter| @@fly << fighter.text.strip}
+    rankings[2].css("a").children.each {|fighter| @@bantam << fighter.text.strip}
+    rankings[3].css("a").children.each {|fighter| @@feather << fighter.text.strip}
+    rankings[4].css("a").children.each {|fighter| @@light << fighter.text.strip}
+    rankings[5].css("a").children.each {|fighter| @@welter << fighter.text.strip}
+    rankings[6].css("a").children.each {|fighter| @@middle << fighter.text.strip}
+    rankings[7].css("a").children.each {|fighter| @@light_heavy << fighter.text.strip}
+    rankings[8].css("a").children.each {|fighter| @@heavy << fighter.text.strip}
+    rankings[9].css("a").children.each {|fighter| @@womens_straw << fighter.text.strip}
+    rankings[10].css("a").children.each {|fighter| @@womens_bantam << fighter.text.strip}
+    @@champions << @@fly[0] << @@bantam[0] << @@feather[0] << @@light[0] << @@welter[0] << @@middle[0] << @@light_heavy[0] << @@heavy[0] << @@womens_straw << @@womens_bantam 
+
+
   end
 
   def self.p4p
-    puts "1 Jon Jones "
-    puts "2 Demetrious Johnson "
-    puts "3 Luke Rockhold "
-    puts "4 Fabricio Werdum "
-    puts "5 Dominick Cruz "
-    puts "6 Rafael Dos Anjos "
-    puts "7 Robbie Lawler "
-    puts "8 Conor McGregor "
-    puts "9 Daniel Cormier "
-    puts "10  Jose Aldo "
-    puts "11  Chris Weidman "
-    puts "12  Frankie Edgar "
-    puts "13  TJ Dillashaw "
-    puts "14  Joanna Jedrzejczyk "
-    puts "15  Miesha Tate "
+    @@p4p.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
   end
 
   def self.fly 
@@ -46,61 +44,56 @@ class UfcRankings::Rankings
   end
 
   def self.bantam
-    puts "Champion : Dominick Cruz"
-    puts "1 TJ Dillashaw "
-    puts "2 Renan Barao "
-    puts "3 Urijah Faber "
-    puts "4 Aljamain Sterling "
-    puts "5 Raphael Assuncao "
-    puts "6 Michael McDonald "
-    puts "7 Thomas Almeida "
-    puts "8 Bryan Caraway "
-    puts "9 Takeya Mizugaki "
-    puts "10  John Dodson "
-    puts "11  Johnny Eduardo "
-    puts "12  John Lineker "
-    puts "13  Frankie Saenz "
-    puts "14  Jimmie Rivera "
-    puts "15  Eddie Wineland "
+   puts "Champion: #{@@champions[1]}"
+   @@bantam.shift
+   @@bantam.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
   end
 
   def self.feather
-    puts "Champion : Conor McGregor"
-    puts "1 Jose Aldo "
-    puts "2 Frankie Edgar "
-    puts "3 Chad Mendes "
-    puts "4 Max Holloway "
-    puts "5 Ricardo Lamas "
-    puts "6 Cub Swanson "
-    puts "7 Charles Oliveira "
-    puts "8 Dennis Bermudez "
-    puts "9 Jeremy Stephens "
-    puts "10  Hacran Dias "
-    puts "11  Darren Elkins "
-    puts "12  Brian Ortega "
-    puts "13  Tatsuya Kawajiri "
-    puts "14  Yair Rodriguez "
-    puts "15  Mirsad Bektic "
+   puts "Champion: #{@@champions[2]}"
+   @@feather.shift
+   @@feather.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
  end
 
  def self.light
+   puts "Champion: #{@@champions[3]}"
+   @@light.shift
+   @@light.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
  end
 
  def self.welter
+   puts "Champion: #{@@champions[4]}"
+   @@welter.shift
+   @@welter.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
  end 
 
  def self.middle
+   puts "Champion: #{@@champions[5]}"
+   @@middle.shift
+   @@middle.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
  end
 
  def self.light_heavy
+   puts "Champion: #{@@champions[6]}"
+   @@light_heavy.shift
+   @@light_heavy.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
  end
 
  def self.heavy
+   puts "Champion: #{@@champions[7]}"
+   @@heavy.shift
+   @@heavy.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
  end
 
  def self.womens_straw
+   puts "Champion: #{@@champions[8]}"
+   @@womens_straw.shift
+   @@womens_straw.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
  end
 
  def self.womens_bantam
+   puts "Champion: #{@@champions[9]}"
+   @@womens_bantam.shift
+   @@womens_bantam.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
  end
 end
