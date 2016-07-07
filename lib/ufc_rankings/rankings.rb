@@ -17,12 +17,6 @@ class UfcRankings::Rankings
 
   def self.divisions
     @@divisions
-    # @@divisions[index].each_with_index do |fighter, i|
-    #   if i == 0
-    # puts "Champion: #{fighter}"  
-    #   else 
-    # puts "#{i+1}. #{fighter}"
-    # end
   end
 
 end
