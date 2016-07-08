@@ -1,22 +1,24 @@
 class UfcRankings::Rankings
-
+  @@division_names = ["Pound for Pound", "Flyweight", "Bantamweight", "Featherweight", "Lightweight", "Welterweight", "Middleweight", "Light Heavyweight", "Heavyweight", "Women's Strawweight", "Women's Bantamweight"]
   @@divisions = {}
 
-  0.upto(10) {|i| @@divisions[i] = Array.new}
+  @@division_names.each_index {|i| @@divisions[i] = Array.new}
 
   def self.scrape_rankings
     doc = Nokogiri::HTML(open("http://www.ufc.com/rankings"))
     rankings = doc.css(".ranking-list") 
-    0.upto(10) {|i| rankings[i].css("a").children.each {|fighter| @@divisions[i] << fighter.text.strip.split.join(" ")}}
+    @@division_names.each_index {|i| rankings[i].css("a").children.each {|fighter| @@divisions[i] << fighter.text.strip.split.join(" ")}}
+    create_fighters
   end
 
-  def self.p4p
-    @@p4p.each_with_index {|fighter, i|puts "#{i+1}. #{fighter}"}
+  def self.create_fighters
+    @@divisions.each {|k, v| v.each_with_index {|name,ranking| fighter = UfcRankings::Fighters.new(name, k, ranking)}}
   end
-
-
   def self.divisions
     @@divisions
   end
 
+  def self.division_names
+    @@division_names
+  end
 end
